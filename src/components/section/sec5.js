@@ -3,6 +3,8 @@ import "../../styles/sec5.css";
 import Sec6 from "./sec6";
 import Sec7 from "./sec7";
 
+import PublicBtn from "../common/project_btn";
+
 import React, { useRef, useEffect } from "react";
 
 export const Sec5 = () => {
@@ -46,10 +48,7 @@ export const Sec5 = () => {
                       <h3>VIEW MORE</h3>
                       <p></p>
                     </div>
-                    <div className="link_btn_wrap flex">
-                      <button>페이지 링크</button>
-                      <button>깃허브 링크</button>
-                    </div>
+                    <PublicBtn />
                   </div>
                   <div className="box1_right3 flexCm">
                     <div className="tit_arrow flex">
@@ -100,10 +99,7 @@ export const Sec5 = () => {
                       <h3>VIEW MORE</h3>
                       <p></p>
                     </div>
-                    <div className="link_btn_wrap flex">
-                      <button>페이지 링크</button>
-                      <button>깃허브 링크</button>
-                    </div>
+                    <PublicBtn />
                   </div>
                   <div className="box1_right3 flexCm">
                     <div className="tit_arrow flex">
@@ -154,10 +150,7 @@ export const Sec5 = () => {
                       <h3>VIEW MORE</h3>
                       <p></p>
                     </div>
-                    <div className="link_btn_wrap flex">
-                      <button>페이지 링크</button>
-                      <button>깃허브 링크</button>
-                    </div>
+                    <PublicBtn />
                   </div>
                   <div className="box1_right3 flexCm">
                     <div className="tit_arrow flex">

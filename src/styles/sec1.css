@@ -2,7 +2,6 @@
     min-height: 115vh;
     display: flex;
     align-items: center;
-    background-color: #0a0a0a;
     overflow: hidden;
     position: relative;
 }
@@ -346,3 +345,70 @@
     padding: 0.3vw;
 }
 
+@media screen and (max-width : 360px) {
+    .sec1 {
+        display: flex;
+    }
+
+    .personal_img>img {
+        border: none;
+        width: auto;
+        top: 0;
+    }
+
+    .hanger {
+        width: 6em; height: 6em;
+        left: auto; right: 0;
+    }
+
+    .hanger p{
+        display: none;
+    }
+
+    .hanger svg {
+        display: none;
+    }   
+
+    .digital_ball {
+        top: 25.5em;
+    }
+
+    .container{
+        padding-bottom: 2vh;
+        transform: translateY(370px);
+    }
+
+    .container .row{
+        align-items: flex-start ;
+    }
+
+    .flex_col>.container_sub_txt{
+        display: none;
+    }
+
+    .flex_col>.container_main_txt>li{
+        font-size: 9vw;
+    }
+    
+    .flex_col>.container_main_txt>li:first-child{
+        font-size: 9.2vw;
+    }
+
+    .scroll_text{
+        width: 50vw;
+    }
+    
+    .scroll_text>span{
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    .scroll_text>.arrow{ 
+        width: 20px; height: 20px;
+    }
+    
+    
+    .big_name{
+        bottom: 30vh;
+    }
+}

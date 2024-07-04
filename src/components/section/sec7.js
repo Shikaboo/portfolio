@@ -1,3 +1,5 @@
+import PublicBtn from "../common/project_btn";
+
 export default function Sec7() {
   return (
     <section className="sec sec7">
@@ -28,10 +30,7 @@ export default function Sec7() {
                       해당 토이 프로젝트에 대한 간략한 설명 을 할 예정입니다
                       -----(만든 이유, 기능, 사용 기술 등을서술)-----
                     </span>
-                    <div className="btn_wrap">
-                      <button>페이지 링크</button>
-                      <button>깃허브 링크</button>
-                    </div>
+                    <PublicBtn />
                   </div>
                 </li>
               </ul>

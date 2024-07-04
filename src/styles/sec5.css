@@ -68,6 +68,7 @@
 }
 
 .tit_arrow{
+    display: flex;
     align-items: flex-start;
 }
 
@@ -75,10 +76,6 @@
     font-size: 2vw;
     font-weight: 700;
     color: #fff;
-}
-
-.link_btn_wrap{
-    justify-content: space-between;
 }
 
 .cont_wrap{
