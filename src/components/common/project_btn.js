@@ -4,7 +4,11 @@ export default function PublicBtn() {
   const [activeBtn, setActiveBtn] = useState(null);
 
   const handleButtonClick = (index) => {
-    setActiveBtn(index);
+    if (activeBtn === null) {
+      setActiveBtn(index);
+    } else {
+      setActiveBtn(null);
+    }
   };
 
   return (

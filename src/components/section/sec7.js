@@ -1,8 +1,9 @@
+import React, { forwardRef } from "react";
 import PublicBtn from "../common/project_btn";
 
-export default function Sec7() {
+const Sec7 = forwardRef(({ sec7Ref }, ref) => {
   return (
-    <section className="sec sec7">
+    <section className="sec sec7" ref={sec7Ref}>
       <article className="sec7_inner">
         <div className="sec7_tit">
           <h2>TOY PROJECT</h2>
@@ -45,4 +46,6 @@ export default function Sec7() {
       </article>
     </section>
   );
-}
+});
+
+export default Sec7;

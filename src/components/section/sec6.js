@@ -1,66 +1,90 @@
+import React, { useState, useRef, forwardRef, useEffect } from "react";
 import PublicBtn from "../common/project_btn";
+import { clones } from "../../utils/text";
+import { imgBundle } from "../../utils/image";
 
-export default function Sec6() {
+const Sec6 = forwardRef(({ sec6Ref }, ref) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const followerRef = useRef(null);
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const { left, right } = event.currentTarget.getBoundingClientRect();
+    const threshold = 200; // 단위: 픽셀
+
+    if (
+      (clientX <= left + threshold || clientX >= right - threshold) &&
+      clientY <= window.innerHeight / 1.5
+    ) {
+      setMousePos({ x: clientX, y: clientY });
+      setIsMouseOver(true);
+    } else {
+      setIsMouseOver(false);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsMouseOver(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sec6Element = sec6Ref.current;
+      const rect = sec6Element.getBoundingClientRect();
+      const isVisible =
+        rect.top <= window.innerHeight && rect.bottom >= 0;
+
+      if (!isVisible) {
+        setIsMouseOver(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [sec6Ref]);
+
   return (
-    <section className="sec sec6">
+    <section
+      className={`sec sec6 ${isMouseOver ? "hide-cursor" : ""}`}
+      ref={sec6Ref}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+    >
       <article>
         <div className="sec6_tit">
           <h2>WEB CLONE</h2>
           <span></span>
-        </div >
+        </div>
         <div className="clone_mockUp_wrap">
           <div className="clone_mockUp">
-            <figure>
-              <img></img>
-              <figcaption>
-                <h4>Domino Pizza</h4>
-                <p>
-                  도미노 피자 메인 페이지를 클로닝 했습니다.
-                  <br />
-                  미디어쿼리를 통한 반응형 작업과 JS를 통한
-                  <br />
-                  간단한 동적 기능을 추가했습니다.
-                </p>
-                <PublicBtn />
-              </figcaption>
-            </figure>
-            <figure>
-              <img></img>
-              <figcaption>
-                <h4>Lotte Bizcar</h4>
-                <p>
-                  롯데 비즈카 메인 페이지를 클로닝 했습니다. 미디어쿼리를 통한
-                  반응형 작업 및 스와이퍼 cdn을 연결하여 슬라이드 기능과 JS를
-                  통해 간단한 버튼 클릭 메뉴 기능을 구현했습니다.
-                </p>
-                <PublicBtn />
-              </figcaption>
-            </figure>
-            <figure>
-              <img></img>
-              <figcaption>
-                <h4>국립공주박물관</h4>
-                <p>
-                  국립 공주 박물관 메인 페이지를 클로닝 했습니다. position을
-                  이용해 사이트가 꾸며져 있었기에 최대한 position을 사용하지
-                  않는 선에서 메인 페이지를 따라해보려 노력했습니다, 앞선 클로닝
-                  사이트와 마찬가지로 간단한 반응형 작업도 진행했습니다.
-                </p>
-                <PublicBtn />
-              </figcaption>
-            </figure>
-            <figure>
-              <img></img>
-              <figcaption>
-                <h4>SOCAR</h4>
-                <p>
-                  SOCAR의 메인 페이지를 클로닝 해봤습니다. 리액트를 처음 배울
-                  당시에 리액트 문법 및 컴포넌트 사용을 숙달하기 위해 클로닝을
-                  진행했습니다.
-                </p>
-                <PublicBtn />
-              </figcaption>
-            </figure>
+            {clones.map((clone) => (
+              <figure key={clone.id}>
+                <img></img>
+                <figcaption>
+                  <h4>{clone.title}</h4>
+                  <p>
+                    {clone.description.split("\n").map((line, idx) => (
+                      <React.Fragment key={idx}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </p>
+                  <PublicBtn />
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <div
+            ref={followerRef}
+            className="mouse-follower"
+            style={{ top: mousePos.y, left: mousePos.x }}
+          >
+            <img src={mousePos.x < window.innerWidth / 2 ? imgBundle[6].src : imgBundle[5].src} />
           </div>
         </div>
         <div className="pagenation_wrap">
@@ -74,4 +98,6 @@ export default function Sec6() {
       </article>
     </section>
   );
-}
+});
+
+export default Sec6;

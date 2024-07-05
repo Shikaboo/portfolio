@@ -1,45 +1,77 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import { imgBundle3 } from "../../utils/image";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Circles() {
+const Circles = forwardRef(({ sec3Ref }, ref) => {
   const circleRefs = useRef([]);
   const circleRefs2 = useRef([]);
   const sectionRef = useRef(null);
 
-  // 원소를 생성하는 코드
+  const [clickedCircles, setClickedCircles] = useState(Array(10).fill(false));
+
   const clientCircles = Array.from({ length: 5 }, (_, index) => (
     <span className={`client_circle top left client0${index + 1}`} key={index}>
       <span
         className="circle_item"
-        ref={(el) => (circleRefs.current[index] = el)}
-      >
-        <span className="circle">
+        ref={(el) => (circleRefs.current[index] = el)}>
+        <span className="circle" onClick={() => handleCircleClick(index)}>
           <img src={imgBundle3[index].src} />
-          <span className="screen_out">{`${imgBundle3[index].cont}`}</span>
+          <span className="screen_out">{imgBundle3[index].cont}</span>
+          <span className="progress hide">{imgBundle3[index].progress}</span>
         </span>
       </span>
     </span>
   ));
 
   const clientCircles2 = Array.from({ length: 5 }, (_, index) => (
-    <span className={`client_circle top left client0${index + 6}`} key={index + 6}>
+    <span
+      className={`client_circle top left client0${index + 6}`}
+      key={index + 6}>
       <span
         className="circle_item"
-        ref={(el) => (circleRefs2.current[index] = el)}
-      >
-        <span className="circle">
+        ref={(el) => (circleRefs2.current[index] = el)}>
+        <span className="circle" onClick={() => handleCircleClick(index + 5)}>
           <img src={imgBundle3[index + 5].src} />
-          <span className="screen_out">{`${imgBundle3[index + 5].cont}`}</span>
+          <span className="screen_out">{imgBundle3[index + 5].cont}</span>
+          <span className="progress hide">{imgBundle3[index + 5].progress}</span>
         </span>
       </span>
     </span>
   ));
+
+  const handleCircleClick = (index) => {
+    const newClickedCircles = [...clickedCircles];
+    newClickedCircles[index] = !newClickedCircles[index];
+    setClickedCircles(newClickedCircles);
+
+    let circleRef;
+    if (index < 5) {
+      circleRef = circleRefs.current[index];
+    } else {
+      circleRef = circleRefs2.current[index - 5];
+    }
+
+    if (newClickedCircles[index]) {
+      gsap.to(circleRef, { rotationY: 180, duration: 0.3 });
+      const img = circleRef.querySelector("img");
+      const screenOutSpan = circleRef.querySelector(".screen_out");
+      const progressSpan = circleRef.querySelector(".progress");
+      img.classList.add("hide");
+      progressSpan.classList.remove("hide");
+      screenOutSpan.classList.add("hide");
+    } else {
+      gsap.to(circleRef, { rotationY: 0, duration: 0.3 });
+      const img = circleRef.querySelector("img");
+      const screenOutSpan = circleRef.querySelector(".screen_out");
+      const progressSpan = circleRef.querySelector(".progress");
+      img.classList.remove("hide");
+      screenOutSpan.classList.remove("hide");
+      progressSpan.classList.add("hide");
+    }
+  };
 
   useEffect(() => {
     const circles1 = circleRefs.current;
@@ -48,13 +80,11 @@ function Circles() {
     gsap.set(circles1, { x: "-15vw", y: "-5vw", scale: 0.6, opacity: 0 });
     gsap.set(circles2, { x: "15vw", y: "-5vw", scale: 0.6, opacity: 0 });
 
-    // ScrollTrigger를 사용하여 스크롤 이벤트 설정
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
       end: "bottom bottom",
       onEnter: () => {
-        // 원래 위치로 이동 및 보이게 설정
         gsap.to(circles1, {
           x: 0,
           y: 0,
@@ -75,7 +105,6 @@ function Circles() {
         });
       },
       onLeaveBack: () => {
-        // 다시 원래 위치로 돌아가게 설정
         gsap.to(circles1, {
           x: "-15vw",
           y: "-5vw",
@@ -97,15 +126,14 @@ function Circles() {
       },
     });
 
-    // 언마운트 시 ScrollTrigger 정리
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
-    <section className="section sec4" ref={sectionRef}>
-      <div>
+    <section className="sec sec3" ref={sectionRef}>
+      <div ref={sec3Ref}>
         <div className="main_client_wrap">
           <div className="cont_pc">
             <div className="scrollmagic-pin-spacer">
@@ -131,7 +159,6 @@ function Circles() {
       </div>
     </section>
   );
-}
+});
 
 export default Circles;
-

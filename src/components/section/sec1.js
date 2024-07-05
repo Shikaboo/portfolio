@@ -1,12 +1,28 @@
 import "../../styles/sec1.css";
-
+import React, { useRef, useEffect, forwardRef } from "react";
+import { gsap, TweenMax } from "gsap";
 import { imgBundle } from "../../utils/image";
 import { ReactComponent as Hanger } from "../../assets/img/hanger.svg";
 
+const Sec1 = forwardRef(({ sec1Ref }, ref) => {
+  const nameWrapRef1 = useRef(null);
+  const nameWrapRef2 = useRef(null);
 
-export const Sec1 = () => {
+  useEffect(() => {
+    const animateNameWrap = (element, duration) => {
+      TweenMax.to(element, duration, {
+        xPercent: -100,
+        ease: "linear",
+        repeat: -1,
+      });
+    };
+
+    animateNameWrap(nameWrapRef1.current, 30);
+    animateNameWrap(nameWrapRef2.current, 30);
+  }, []);
+
   return (
-    <section className="sec sec1">
+    <section className="sec sec1" ref={sec1Ref}>
       <div className="personal_img">
         <img />
       </div>
@@ -56,13 +72,13 @@ export const Sec1 = () => {
       </div>
       <div className="big_name">
         <div className="name_h1">
-            <div className="name_wrap">
+            <div className="name_wrap" ref={nameWrapRef1}>
                 <h1>
                     Shin Hyo Jun
                     <span className="spacer">-</span>
                 </h1>
             </div>
-            <div className="name_wrap">
+            <div className="name_wrap" ref={nameWrapRef2}>
                 <h1>
                     Shin Hyo Jun
                     <span className="spacer">-</span>
@@ -72,4 +88,6 @@ export const Sec1 = () => {
       </div>
     </section>
   );
-};
+});
+
+export default Sec1;

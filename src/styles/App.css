@@ -25,9 +25,11 @@ span {
   display: inline-block;
 }
 
-.sec4 {
+.sec3 {
   visibility: visible;
   opacity: 1;
+  background-color: #0a0a0a;
+  z-index: 20;
 }
 
 .main_client{
@@ -67,18 +69,18 @@ span {
 
 
 /* 부모 컨테이너 스타일 설정 */
-.sec4 .main_client_wrap {
+.sec3 .main_client_wrap {
   position: relative;
   width: 100%;
 }
 
 /* 내부 컨테이너 스타일 설정 */
-.sec4 .main_client_wrap > .cont_pc {
+.sec3 .main_client_wrap > .cont_pc {
   display: block;
 }
 
 /* 스크롤 매직 스타일 설정 */
-.sec4 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer {
+.sec3 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer {
   inset: auto;
   margin: 0px;
   display: block;
@@ -90,7 +92,7 @@ span {
 }
 
 /* 메인 클라이언트 스타일 설정 */
-.sec4 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer > .main_client {
+.sec3 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer > .main_client {
   position: absolute; 
   /*여길 fixed로 설정 했었는데 그래서 포지션이 겹치다 보니까 스크롤했을 때 페이지가 굉장히 이상해짐*/
   margin: auto;
@@ -100,7 +102,7 @@ span {
   height: 100%;
 }
 
-.sec4 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer > .main_client.relative {
+.sec3 .main_client_wrap > .cont_pc > .scrollmagic-pin-spacer > .main_client.relative {
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -236,6 +238,29 @@ span {
   width: 450px; height: 450px;
 }
 
+.client_circle_wrap .circle_item > .circle>img.hide{
+  display: none;
+}
+
+.client_circle_wrap .circle_item > .circle>.screen_out{
+  display: inline-block;
+}
+
+.client_circle_wrap .circle_item > .circle>.screen_out.hide{
+  display: none;
+}
+
+.client_circle_wrap .circle_item > .circle>.progress{
+  font-size: 36px;
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+
+.client_circle_wrap .circle_item > .circle>.progress.hide{
+  display: none;
+}
+
+
 /*  */
 
 .box1 {
@@ -261,7 +286,31 @@ span {
 
 .sec6{
   width: 100%;
-  margin-top: 13vh;
+  margin-top: 10vh;
+  position: relative;
+}
+
+.sec6.hide-cursor {
+  cursor: none; /* 커서 숨기기 */
+}
+
+.mouse-follower {
+  width: 3em;
+  height: 3em;
+  position: fixed; /* fixed로 변경하여 viewport 내에서 움직이도록 설정 */
+  pointer-events: none;
+  display: none; /* 기본적으로 숨기기 */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* 다른 요소 위에 나타나도록 설정 */
+}
+
+.mouse-follower>img{
+  width: 100%; height: 100%;
+}
+
+.sec6.hide-cursor .mouse-follower {
+  display: block; /* mouse-follower 보이기 */
 }
 
 .sec6>article{
@@ -331,10 +380,9 @@ span {
 
 .clone_mockUp figcaption>p{
   max-width: 425px;
-  width: 100%; height: 150px;
+  width: 100%; height: 120px;
   text-align: left;
   font-weight: 500;
-  margin-bottom: 28px;
 }
 
 .clone_mockUp figcaption>div{

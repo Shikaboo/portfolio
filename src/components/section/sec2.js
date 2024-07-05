@@ -1,8 +1,8 @@
 import "../../styles/sec2.css";
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { imgBundle2 } from "../../utils/image";
 
-export const Sec2 = () => {
+const Sec2 = forwardRef(({ sec2Ref },ref) => {
   const [infoType, setInfoType] = useState("Personal");
 
   const handleInfoClick = (type) => {
@@ -10,7 +10,7 @@ export const Sec2 = () => {
   };
 
   return (
-    <section className="sec sec2" style={{ backgroundColor: "#0a0a0a" }}>
+    <section className="sec sec2" style={{ backgroundColor: "#0a0a0a" }} ref={sec2Ref}>
       <article className="sec2_AboutMe">
         <div className="AM_inner">
           <div className="AM_img_grid_wrap">
@@ -49,7 +49,13 @@ export const Sec2 = () => {
           </div>
           <div className="AM_wrap">
             <h2>
-              ABOUT <span>ME</span>
+              <span>A</span>
+              <span>B</span>
+              <span>O</span>
+              <span>U</span>
+              <span>T</span>
+              <span className="color">M</span>
+              <span className="color">E</span>
             </h2>
             <div className="AM_btn">
               <span
@@ -142,4 +148,6 @@ export const Sec2 = () => {
       </article>
     </section>
   );
-};
+});
+
+export default Sec2;

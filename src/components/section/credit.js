@@ -1,6 +1,8 @@
 import { imgBundle } from "../../utils/image";
+import React, { forwardRef } from "react";
+import { scrollToSection } from "../../utils/Scroll";
 
-export default function Credit() {
+const Credit = ({ sec1Ref, sec2Ref, sec3Ref, sec4Ref }, ref) => {
   return (
     <footer>
       <div className="left_txt_box">
@@ -52,13 +54,15 @@ export default function Credit() {
             </div>
           </div>
           <ul>
-            <li className="split">Introduce</li>
-            <li className="split">About Me</li>
-            <li className="split">Skills</li>
-            <li className="split">Project</li>
+            <li className="split" onClick={()=>{scrollToSection(sec1Ref)}}>Introduce</li>
+            <li className="split" onClick={()=>{scrollToSection(sec2Ref)}}>About Me</li>
+            <li className="split" onClick={()=>{scrollToSection(sec3Ref)}}>Skills</li>
+            <li className="split" onClick={()=>{scrollToSection(sec4Ref)}}>Project</li>
           </ul>
         </div>
       </div>
     </footer>
   );
 }
+
+export default forwardRef(Credit);

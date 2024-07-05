@@ -1,55 +1,26 @@
 import "../../styles/test.css";
-
-import React, { useEffect, useRef } from "react";
-
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import React, { useEffect, useRef, forwardRef } from "react";
 import { imgBundle } from "../../utils/image";
 import { ReactComponent as First_Wave } from "../../assets/img/layered_waves_haikei1.svg";
 import { ReactComponent as Second_Wave } from "../../assets/img/layered_waves_haikei2.svg";
+import { initScrollAnimations, scrollToSection } from "../../utils/Scroll";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Test = () => {
+const Test = ({ sec4Ref, sec5Ref, sec6Ref, sec7Ref }, ref) => {
   const svg1Ref = useRef(null);
   const svg2Ref = useRef(null);
   const mainRef = useRef(null);
 
   useEffect(() => {
-
-    // SVG 요소의 초기 높이를 설정
-    gsap.set(svg1Ref.current, { height: "50%" });
-    gsap.set(svg2Ref.current, { height: "50%"});
-
-    // ScrollTrigger를 사용하여 스크롤 이벤트 설정
-    ScrollTrigger.create({
-      trigger: svg2Ref.current,
-      start: "bottom bottom",
-      end: "+=100 10%", // 추가 스크롤 범위 설정
-      pin: mainRef.current, // main 요소를 고정
-      scrub: true,
-      markers: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        
-        // SVG 요소의 높이를 줄이기
-        gsap.to(svg1Ref.current, { height: `${50 - 50 * progress}%` });
-        gsap.to(svg2Ref.current, { height: `${50 - 50 * progress}%` });
-      },
-    });
+    initScrollAnimations(mainRef, svg1Ref, svg2Ref);
   }, []);
 
   return (
-    <section>
+    <section className="sec sec4" ref={sec4Ref}>
       <article>
         <div id="svg1" ref={svg1Ref}>
           <First_Wave />
         </div>
-        <div id="svg2" ref={svg2Ref}>
-          <Second_Wave />
-        </div>
-        <div className="main" ref={mainRef} style={{ overflow: 'hidden' }}>
+        <div className="main" ref={mainRef}>
           <div className="BgImg1">
             <img src={imgBundle[0].src} />
           </div>
@@ -64,17 +35,17 @@ const Test = () => {
                 </h2>
               </li>
               <li>
-                <div id="Scrolltn">
-                  <span>WEB CLONE</span>
-                </div>
-              </li>
-              <li>
-                <div id="Scrolltn">
+                <div id="Scrolltn" onClick={() => scrollToSection(sec5Ref)}>
                   <span>PROJECT</span>
                 </div>
               </li>
               <li>
-                <div id="Scrolltn">
+                <div id="Scrolltn" onClick={() => scrollToSection(sec6Ref)}>
+                  <span>WEB CLONE</span>
+                </div>
+              </li>
+              <li>
+                <div id="Scrolltn" onClick={() => scrollToSection(sec7Ref)}>
                   <span>TOY PROJECT</span>
                 </div>
               </li>
@@ -84,9 +55,12 @@ const Test = () => {
             <img src={imgBundle[2].src} />
           </div>
         </div>
+        <div id="svg2" ref={svg2Ref}>
+          <Second_Wave />
+        </div>
       </article>
     </section>
   );
 };
 
-export default Test;
+export default forwardRef(Test);
