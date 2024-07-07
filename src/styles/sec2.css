@@ -186,7 +186,7 @@ tr{
     padding-bottom: 28px;
 }
 
-@media screen and (max-width : 360px) {
+@media screen and (max-width : 500px) {
     .AM_inner{
         flex-direction: column;
         gap: 200px;

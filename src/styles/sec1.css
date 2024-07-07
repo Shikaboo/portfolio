@@ -345,7 +345,7 @@
     padding: 0.3vw;
 }
 
-@media screen and (max-width : 360px) {
+@media screen and (max-width : 500px) {
     .sec1 {
         display: flex;
     }

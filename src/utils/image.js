@@ -26,6 +26,12 @@ import SkIcon8 from '../assets/img/ICON/illustrator-96.png';
 import SkIcon9 from '../assets/img/ICON/photoshop-96.png';
 import SkIcon10 from '../assets/img/ICON/figma-100.png';
 
+import domino from '../assets/img/domino.png';
+import pr_one from '../assets/img/project_1.png'
+import pr_two from '../assets/img/project_2.png'
+
+import comming from '../assets/img/comming_soon.gif'
+
 
 export const imgBundle = [
     {src: stone, id: 1},
@@ -59,3 +65,9 @@ export const imgBundle3 = [
     {src: SkIcon10, id: 10, cont: 'FIGMA', progress: '70%'},
 ]
 
+export const page_imgBundle = [
+    {src: domino, id: 1},
+    {src: pr_one,id: 2},
+    {src: pr_two, id: 3},
+    {src: comming, id: 4},
+]

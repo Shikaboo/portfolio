@@ -5,7 +5,7 @@ import Sec6 from "./sec6";
 import Sec7 from "./sec7";
 import PublicBtn from "../common/project_btn";
 
-import {projects} from "../../utils/text"
+import { projects } from "../../utils/text";
 
 const Sec5 = ({ sec5Ref, sec6Ref, sec7Ref }, ref) => {
   return (
@@ -22,7 +22,7 @@ const Sec5 = ({ sec5Ref, sec6Ref, sec7Ref }, ref) => {
                 <div className="project_box1 project flex">
                   <div className="box1_left flexCm">
                     <div className="project_img">
-                      <img />
+                      <img src={project.src} />
                     </div>
                   </div>
                   <div className="box1_right flexCm">
@@ -48,7 +48,7 @@ const Sec5 = ({ sec5Ref, sec6Ref, sec7Ref }, ref) => {
                       <div className="tit_arrow">
                         <h3>VIEW MORE</h3>
                       </div>
-                      <PublicBtn />
+                      <PublicBtn page_link={project.page_link} github_link={project.github_link} />
                     </div>
                     <div className="box1_right3 flexCm">
                       <div className="tit_arrow flex">
