@@ -24,7 +24,7 @@ const Sec1 = forwardRef(({ sec1Ref }, ref) => {
   return (
     <section className="sec sec1" ref={sec1Ref}>
       <div className="personal_img">
-        <img />
+        <img src={imgBundle[7].src} />
       </div>
       <div className="locate_hanger">
         <div className="hanger">

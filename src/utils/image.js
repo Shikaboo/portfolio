@@ -32,6 +32,8 @@ import pr_two from '../assets/img/project_2.png'
 
 import comming from '../assets/img/comming_soon.gif'
 
+import test from '../assets/img/test 1.png'
+
 
 export const imgBundle = [
     {src: stone, id: 1},
@@ -40,7 +42,8 @@ export const imgBundle = [
     {src: right_arrow, id: 4},
     {src: left_arrow, id: 5},
     {src: sec6_right_arrow, id: 6},
-    {src: sec6_left_arrow, id: 7}
+    {src: sec6_left_arrow, id: 7},
+    {src: test, id: 8}
 ]
 
 export const imgBundle2 = [
