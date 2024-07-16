@@ -138,9 +138,9 @@ const Sec2 = forwardRef(({ sec2Ref }, ref) => {
                     <tr>
                       <th>
                         <img/>
+                        <p className="subheading">Hobby</p>
                       </th>
-                      <th>
-                        <p>Hobby</p>
+                      <th className="subTxt">
                         <p>취미 1</p>
                         <p>취미 2</p>
                         <p>취미 3</p>
@@ -151,9 +151,9 @@ const Sec2 = forwardRef(({ sec2Ref }, ref) => {
                     <tr>
                       <td>
                         <img />
+                        <p className="subheading">Education</p>
                       </td>
-                      <td>
-                        <p>Education</p>
+                      <td className="subTxt">
                         <p>고등학교</p>
                         <p>노원그린컴퓨터아카데미</p>
                       </td>
