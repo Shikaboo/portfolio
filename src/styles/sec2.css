@@ -6,6 +6,7 @@
 }
 
 .AM_inner{
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,6 +153,7 @@ h2>.color{
 
 
 .AM_midle_txt{
+    width: 100%;
     padding: 60px 0;
 }
 
