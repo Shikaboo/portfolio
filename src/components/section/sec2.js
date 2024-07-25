@@ -1,8 +1,8 @@
 import "../../styles/sec2.css";
 import React, { useState, forwardRef } from "react";
-import { imgBundle2 } from "../../utils/image";
+import { imgBundle2, MyProfileImg } from "../../utils/image";
 
-const Sec2 = forwardRef(({ sec2Ref },ref) => {
+const Sec2 = forwardRef(({ sec2Ref }, ref) => {
   const [infoType, setInfoType] = useState("Personal");
 
   const handleInfoClick = (type) => {
@@ -10,13 +10,16 @@ const Sec2 = forwardRef(({ sec2Ref },ref) => {
   };
 
   return (
-    <section className="sec sec2" style={{ backgroundColor: "#0a0a0a" }} ref={sec2Ref}>
+    <section
+      className="flex sec sec2"
+      ref={sec2Ref}
+    >
       <article className="sec2_AboutMe">
         <div className="AM_inner">
           <div className="AM_img_grid_wrap">
             <div className="AM_grid1 grid">
               <figure>
-                <img src id="test1"></img>
+                <img src={'/'} id="test1"></img>
                 <figcaption>
                   <p>#CREATIVE</p>
                 </figcaption>
@@ -24,7 +27,7 @@ const Sec2 = forwardRef(({ sec2Ref },ref) => {
             </div>
             <div className="AM_grid2 grid">
               <figure>
-                <img src id="test1"></img>
+                <img src="/" id="test1"></img>
                 <figcaption>
                   <p>#RESPONSIBLE</p>
                 </figcaption>
@@ -32,7 +35,7 @@ const Sec2 = forwardRef(({ sec2Ref },ref) => {
             </div>
             <div className="AM_grid3 grid">
               <figure>
-                <img src id="test1"></img>
+                <img src="/" id="test1"></img>
                 <figcaption>
                   <p>#POSITIVE</p>
                 </figcaption>
@@ -40,7 +43,7 @@ const Sec2 = forwardRef(({ sec2Ref },ref) => {
             </div>
             <div className="AM_grid4 grid">
               <figure>
-                <img src id="test1"></img>
+                <img src="/" id="test1"></img>
                 <figcaption>
                   <p>#SOCIABLE</p>
                 </figcaption>
@@ -72,72 +75,98 @@ const Sec2 = forwardRef(({ sec2Ref },ref) => {
               </span>
             </div>
             <div className="AM_midle_txt">
-              <p>
-                신입의 열정과 도전정신을 깊숙히 새기며 배움에 있어 겸손함을
-                <br />
-                유지하며 세부적인 곳까지 파고드는 개발자가 되겠습니다.
-              </p>
+              {infoType === "Personal" ? (
+                <p>
+                  신입의 열정과 도전정신을 깊숙히 새기며 배움에 있어 겸손함을
+                  <br />
+                  유지하며 세부적인 곳까지 파고드는 개발자가 되겠습니다.
+                </p>
+              ) : (
+                <p>
+                  역동적이고 매력적인 경험을 좋아합니다, <br/>
+                  그렇기에 제가 만든 사이트에서도 같은 경험을 느끼게 하고 싶습니다.
+                </p>
+              )}
             </div>
             <div className="AM_cont">
               {infoType === "Personal" ? (
                 <table className="AM_info">
                   <thead>
-                    <tr>
-                      <th>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[0].src} />
-                      </th>
-                      <th className="icon_txt">신효준</th>
+                        <p className="icon_txt">신효준</p>
+                      </td>
                     </tr>
-                    <tr>
-                      <td>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[1].src} />
+                        <p className="icon_txt">2001.07.24</p>
                       </td>
-                      <td className="icon_txt">2001.07.24</td>
                     </tr>
-                    <tr>
-                      <td>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[2].src} />
+                        <p className="icon_txt">@noboo724</p>
                       </td>
-                      <td className="icon_txt">@noboo724</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[3].src} />
+                        <p className="icon_txt">010-6660-8657</p>
                       </td>
-                      <td className="icon_txt">010-6660-8657</td>
                     </tr>
-                    <tr>
-                      <td>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[4].src} />
+                        <p className="icon_txt">sksdhkd0724@gmail.com</p>
                       </td>
-                      <td className="icon_txt">sksdhkd0724@gmail.com</td>
                     </tr>
-                    <tr>
-                      <td>
+                    <tr className="info_cont_wrap">
+                      <td className="flex info_cont">
                         <img src={imgBundle2[5].src} />
+                        <p className="icon_txt">https://github.com/Shikaboo</p>
                       </td>
-                      <td className="icon_txt">https://github.com/Shikaboo</td>
                     </tr>
                   </tbody>
                 </table>
               ) : (
-                <table className="AM_info">
+                <table className="ED_info">
                   <thead>
-                    <tr>
-                      <th>교육기관</th>
-                      <th>기간</th>
+                    <tr className="flex Education_cont">
+                      <th>
+                        <img />
+                        <p className="subheading">Hobby</p>
+                      </th>
+                      <th className="flex Ed_cont">
+                        <div className="Ed_cont_deco">
+                          <div className="deco_circle"></div>
+                        </div>
+                        <div className="flex subTxt">
+                          <p>취미 1</p>
+                          <p>취미 2</p>
+                          <p>취미 3</p>
+                        </div>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>서울대학교</td>
-                      <td>2019 - 2023</td>
-                    </tr>
-                    <tr>
-                      <td>한국정보교육원</td>
-                      <td>2023 - 현재</td>
+                    <tr className="flex Education_cont">
+                      <td>
+                        <img />
+                        <p className="subheading">Education</p>
+                      </td>
+                      <td className="flex Ed_cont">
+                        <div className="Ed_cont_deco">
+                          <div className="deco_circle"></div>
+                        </div>
+                        <div className="flex subTxt"> 
+                          <p>고등학교</p>
+                          <p>노원그린컴퓨터아카데미</p>
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

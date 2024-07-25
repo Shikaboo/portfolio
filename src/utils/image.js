@@ -32,8 +32,13 @@ import pr_two from '../assets/img/project_2.png'
 
 import comming from '../assets/img/comming_soon.gif'
 
+// sec1
 import test from '../assets/img/test 1.png'
-
+// sec2
+import MyProfile1 from '../assets/img/MY_PROFILE1.png'
+import MyProfile2 from '../assets/img/MY_PROFILE2.png'
+import MyProfile3 from '../assets/img/MY_PROFILE3.png'
+import MyProfile4 from '../assets/img/MY_PROFILE4.png'
 
 export const imgBundle = [
     {src: stone, id: 1},
@@ -73,4 +78,11 @@ export const page_imgBundle = [
     {src: pr_one,id: 2},
     {src: pr_two, id: 3},
     {src: comming, id: 4},
+]
+
+export const MyProfileImg = [
+    {src: MyProfile1},
+    {src: MyProfile2},
+    {src: MyProfile3},
+    {src: MyProfile4}
 ]
