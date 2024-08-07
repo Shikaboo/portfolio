@@ -68,6 +68,7 @@
     width: 30%;
     gap: 80px;
     align-items: flex-start;
+    justify-content: space-between;
 }
 
 .tit_arrow {
@@ -92,7 +93,13 @@
 }
 
 .box1_left {
-    width: 100%;
+    width: auto;
+}
+
+.box1_left>.project_img>img{
+    width: 1024px;
+    height: 690px;
+    object-fit: cover;
 }
 
 .box1_right1,
