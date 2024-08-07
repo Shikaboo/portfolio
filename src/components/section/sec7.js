@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import PublicBtn from "../common/project_btn";
+import { imgBundle } from "../../utils/image";
 
 const Sec7 = forwardRef(({ sec7Ref }, ref) => {
   return (
@@ -37,8 +38,13 @@ const Sec7 = forwardRef(({ sec7Ref }, ref) => {
               </ul>
             </div>
             <div className="dots_wrap">
-              <ul className="dots">
-                <li></li>
+              <ul className="flex dots">
+                <li>
+                  <img src={imgBundle[6].src}/>
+                </li>
+                <li>
+                  <img src={imgBundle[5].src}/>
+                </li>
               </ul>
             </div>
           </div>

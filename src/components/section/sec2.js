@@ -41,14 +41,6 @@ const Sec2 = forwardRef(({ sec2Ref }, ref) => {
                 </figcaption>
               </figure>
             </div>
-            <div className="AM_grid4 grid">
-              <figure>
-                <img src="/" id="test1"></img>
-                <figcaption>
-                  <p>#SOCIABLE</p>
-                </figcaption>
-              </figure>
-            </div>
           </div>
           <div className="AM_wrap">
             <h2>
@@ -73,20 +65,6 @@ const Sec2 = forwardRef(({ sec2Ref }, ref) => {
               >
                 Education
               </span>
-            </div>
-            <div className="AM_midle_txt">
-              {infoType === "Personal" ? (
-                <p>
-                  신입의 열정과 도전정신을 깊숙히 새기며 배움에 있어 겸손함을
-                  <br />
-                  유지하며 세부적인 곳까지 파고드는 개발자가 되겠습니다.
-                </p>
-              ) : (
-                <p>
-                  역동적이고 매력적인 경험을 좋아합니다, <br/>
-                  그렇기에 제가 만든 사이트에서도 같은 경험을 느끼게 하고 싶습니다.
-                </p>
-              )}
             </div>
             <div className="AM_cont">
               {infoType === "Personal" ? (

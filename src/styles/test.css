@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.sec4{
+    width: 100%; height: auto;
+}
+
 section{
     position: relative;
 }
@@ -16,11 +20,13 @@ section>article{
     overflow: hidden;
 }
 
-section>article>.main{
-    width: 100%; height: 95vh;
+.sec4 .main{
+    width: 100% !important; height: 106vh !important;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #svg1{
@@ -68,12 +74,18 @@ section>article>.main{
 .tit_wrap_sec>.tit_wrap > .tit {
     width: 100%;
     margin: 120px 0 100px 0;
+    @media screen and ( max-width : 480px) {
+        margin: 60px 0 50px 0;
+    }
 }
 
 .tit_wrap_sec>.tit_wrap > .tit > h2{
-    font-size: 4vw;
+    font-size: 2em;
     font-weight: 900;
     color: #fff;
+    @media screen and ( max-width : 480px) {
+        font-size: 1em;
+    }
 }
 
 .tit_wrap_sec>.tit_wrap > .tit > h2 > span{
@@ -85,7 +97,7 @@ section>article>.main{
     width: 300px; height: 100px;
     border: 2px solid #7d7d7d;
     border-radius: 60px;
-    background-color: transparent;
+    background-color: var(--color_background);
     margin: 0 auto 60px auto;
 }
 
@@ -107,10 +119,16 @@ section>article>.main{
 }
 
 .BgImg1 > img{
+    width: 50em; height: auto;
     filter: grayscale(100%);
     position: absolute;
     top: -45%; left: -20%;
     z-index: 14;
+    object-fit: cover;
+    @media screen and ( max-width : 1280px) {
+        width: 31.25em;
+        top: -25%; left: -15%;
+    }
 }
 
 .BgImg2 > img{
@@ -118,12 +136,27 @@ section>article>.main{
     position: absolute;
     top: 25%; left: 0;
     z-index: 1;
+    @media screen and ( max-width : 1440px) {
+        width: 31.25em; height: auto;
+        left: 5%;
+        object-fit: fill;
+    }
+    @media screen and ( max-width : 1280px) {
+        width: 25em; height: auto;
+        left: 5%;
+        object-fit: fill;
+    }
 }
 
 .BgImg3 > img{
+    width: 50em; height: auto;
     filter: grayscale(100%);
     position: absolute;
     bottom: -40%; right: -4%;
     z-index: 1;
+    @media screen and ( max-width : 1280px) {
+        width: 31.25em;
+        bottom: -30%;
+    }
 }
 

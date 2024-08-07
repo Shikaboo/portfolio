@@ -11,7 +11,7 @@ const Sec5 = ({ sec5Ref, sec6Ref, sec7Ref }, ref) => {
   return (
     <div className="box2">
       <section className="sec sec5" ref={sec5Ref}>
-        <article>
+        <article className="sec5_inner">
           <h1>PROJECT</h1>
           <div className="project_box_world_wrap">
             {projects.map((project, index) => (

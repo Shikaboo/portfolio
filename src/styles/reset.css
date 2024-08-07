@@ -6,7 +6,6 @@
     --color_border: rgba(0, 0, 0, 0.25);
     --font_family_sans: 'Noto Sans KR', sans-serif;
     font-size: 16px;
-
     @media screen and (min-width:1921px) {
         font-size: calc(100dvw * (16 / 1920));
     }

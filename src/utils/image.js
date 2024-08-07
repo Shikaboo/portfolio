@@ -27,18 +27,19 @@ import SkIcon9 from '../assets/img/ICON/photoshop-96.png';
 import SkIcon10 from '../assets/img/ICON/figma-100.png';
 
 import domino from '../assets/img/domino.png';
-import pr_one from '../assets/img/project_1.png'
-import pr_two from '../assets/img/project_2.png'
+import pr_one from '../assets/img/project_1.png';
+import pr_two from '../assets/img/project_2.png';
+import pr_thr from '../assets/img/project_3.png';
 
-import comming from '../assets/img/comming_soon.gif'
+import comming from '../assets/img/comming_soon.gif';
 
 // sec1
-import test from '../assets/img/test 1.png'
+import test from '../assets/img/test 1.png';
 // sec2
-import MyProfile1 from '../assets/img/MY_PROFILE1.png'
-import MyProfile2 from '../assets/img/MY_PROFILE2.png'
-import MyProfile3 from '../assets/img/MY_PROFILE3.png'
-import MyProfile4 from '../assets/img/MY_PROFILE4.png'
+import MyProfile1 from '../assets/img/MY_PROFILE1.png';
+import MyProfile2 from '../assets/img/MY_PROFILE2.png';
+import MyProfile3 from '../assets/img/MY_PROFILE3.png';
+import MyProfile4 from '../assets/img/MY_PROFILE4.png';
 
 export const imgBundle = [
     {src: stone, id: 1},
@@ -77,7 +78,8 @@ export const page_imgBundle = [
     {src: domino, id: 1},
     {src: pr_one,id: 2},
     {src: pr_two, id: 3},
-    {src: comming, id: 4},
+    {src: pr_thr, id: 4},
+    {src: comming, id: 5},
 ]
 
 export const MyProfileImg = [
